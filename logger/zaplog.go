@@ -54,24 +54,14 @@ func Init(config *LogConf) {
 	}
 	// 自定义日志级别显示
 	customLevelEncoder := func(level zapcore.Level, enc zapcore.PrimitiveArrayEncoder) {
-		var s string
-		if config.JsonFormat {
-			s = level.CapitalString()
-		} else {
-			s = "|\t" + level.CapitalString() + "\t|"
-		}
+		s := level.CapitalString()
 		enc.AppendString(s)
 	}
 
 	// 自定义文件：行号输出项
 	customCallerEncoder := func(caller zapcore.EntryCaller, enc zapcore.PrimitiveArrayEncoder) {
-		var s string
-		if config.JsonFormat {
-			s = caller.TrimmedPath()
-		} else {
-			s = caller.TrimmedPath() + "\t|"
-		}
-		enc.AppendString("[" + caller.Function + "] " + s)
+		s := caller.TrimmedPath()
+		enc.AppendString("(" + caller.Function + ") " + s)
 	}
 
 	encoderConf := zapcore.EncoderConfig{
