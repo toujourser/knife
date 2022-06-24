@@ -38,7 +38,7 @@ func Init(config *LogConf) {
 	}
 
 	if config.NewLog {
-		lumberjackCfg.Rotate()
+		_ = lumberjackCfg.Rotate()
 	}
 	syncWriters = append(syncWriters, zapcore.AddSync(lumberjackCfg))
 
