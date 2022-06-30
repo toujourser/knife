@@ -29,8 +29,10 @@ func GetExt(fileName string) string {
 // CheckExist 检查文件是否存在
 func CheckExist(src string) bool {
 	_, err := os.Stat(src)
-
-	return os.IsNotExist(err)
+	if os.IsNotExist(err) {
+		return false
+	}
+	return true
 }
 
 // IsNotExistMkDir 检查文件夹是否存在
@@ -46,16 +48,17 @@ func IsNotExistMkDir(src string) error {
 }
 
 // 创建文件
-func FileCreate(content bytes.Buffer, name string) {
+func FileCreate(content *bytes.Buffer, name string) error {
 	file, err := os.Create(name)
 	if err != nil {
-		log.Println(err)
+		return err
 	}
+	defer file.Close()
 	_, err = file.WriteString(content.String())
 	if err != nil {
-		log.Println(err)
+		return err
 	}
-	file.Close()
+	return nil
 }
 
 type ReplaceHelper struct {
@@ -152,8 +155,7 @@ func GetType(p string) (string, error) {
 	file, err := os.Open(p)
 
 	if err != nil {
-		log.Println(err)
-		os.Exit(1)
+		return "", err
 	}
 
 	buff := make([]byte, 512)
@@ -166,8 +168,5 @@ func GetType(p string) (string, error) {
 
 	filetype := http.DetectContentType(buff)
 
-	//ext := GetExt(p)
-	//var list = strings.Split(filetype, "/")
-	//filetype = list[0] + "/" + ext
 	return filetype, nil
 }

@@ -8,7 +8,7 @@ utils是基于常见设计模式进行模块化设计的Go包组件集，封装�
 ### 安装
 
 ```bash
-$ go get -v -u github.com/toujourser/utils
+$ go get -v -u github.com/toujourser/utils@latest
 ```
 
 ### 用法
