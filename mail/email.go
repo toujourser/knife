@@ -19,7 +19,7 @@ type Email struct {
 	To      string
 }
 
-//SSL方式发送邮件
+// SSL方式发送邮件
 func SendEmail(o *Email) error {
 
 	header := make(map[string]string)
@@ -51,7 +51,7 @@ func SendEmail(o *Email) error {
 	return nil
 }
 
-//return a smtp client
+// return a smtp client
 func Dial(addr string) (*smtp.Client, error) {
 	conn, err := tls.Dial("tcp", addr, nil)
 	if err != nil {
@@ -63,9 +63,9 @@ func Dial(addr string) (*smtp.Client, error) {
 	return smtp.NewClient(conn, host)
 }
 
-//参考net/smtp的func SendMail()
-//使用net.Dial连接tls(ssl)端口时,smtp.NewClient()会卡住且不提示err
-//len(to)>1时,to[1]开始提示是密送
+// 参考net/smtp的func SendMail()
+// 使用net.Dial连接tls(ssl)端口时,smtp.NewClient()会卡住且不提示err
+// len(to)>1时,to[1]开始提示是密送
 func SendMailUsingTLS(addr string, auth smtp.Auth, from string, to []string, msg []byte) (err error) {
 	//create smtp client
 	c, err := Dial(addr)

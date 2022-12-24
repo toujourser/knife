@@ -141,7 +141,7 @@ func GetFileSize(filename string) int64 {
 	return result
 }
 
-//获取当前路径，比如：E:/abc/data/test
+// 获取当前路径，比如：E:/abc/data/test
 func GetCurrentPath() string {
 	dir, err := os.Getwd()
 	if err != nil {

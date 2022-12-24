@@ -37,7 +37,8 @@ type FeiShuResponse struct {
 	Data          interface{} `json:"data"`
 }
 
-//飞书自定义机器人, 目前仅支持文字和富文本
+// 飞书自定义机器人, 目前仅支持文字和富文本
+//
 //	msgType: 1-纯文本 2-富文本
 //		msgType为1时，title为发送的文字信息，content置空
 //		msgType为2时，title为富文本标题，content为富文本内容

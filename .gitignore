@@ -19,3 +19,5 @@
 logger/.DS_Store
 logger/logs/
 code/
+.idea/
+go.sum

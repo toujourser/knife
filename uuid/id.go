@@ -20,7 +20,7 @@ func init() {
 	lastTimeStamp = time.Now().UnixNano() / 1000
 }
 
-//生成雪花ID
+// 生成雪花ID
 func GetSnowflakeIdProcess() int64 {
 	curTimeStamp := time.Now().UnixNano() / 1000
 	// 同一毫秒
@@ -52,7 +52,7 @@ func GetSnowflakeId() int64 {
 	return GetSnowflakeIdProcess()
 }
 
-//生成随机字符串(带有位数)
+// 生成随机字符串(带有位数)
 func GetRandomString(lens int) string {
 	str := "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	bytes := []byte(str)
@@ -64,7 +64,7 @@ func GetRandomString(lens int) string {
 	return string(result)
 }
 
-//生成随机字符串(特殊字符)
+// 生成随机字符串(特殊字符)
 func GetRandomSpecialString(lens int) string {
 	str := "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,*@#&+~!"
 	bytes := []byte(str)
@@ -76,7 +76,7 @@ func GetRandomSpecialString(lens int) string {
 	return string(result)
 }
 
-//随机数生成,带有位数限制
+// 随机数生成,带有位数限制
 func CreateValidateCode(width int) string {
 	numeric := [10]byte{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
 	r := len(numeric)
@@ -89,7 +89,7 @@ func CreateValidateCode(width int) string {
 	return data.String()
 }
 
-//生成一个在区间范围的随机数
+// 生成一个在区间范围的随机数
 func GenerateRangeNum(min, max int) int {
 	// rand.Seed(time.Now().Unix())//时间戳秒，跟新的随机数相同，暂时不用
 	rand.Seed(time.Now().UnixNano()) //获取纳秒
