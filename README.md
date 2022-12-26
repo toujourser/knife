@@ -3,7 +3,7 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/toujourser/utils)
 
 ### 背景
-utils是基于常见设计模式进行模块化设计的Go包组件集，封装了常用的功能，使用简单，致力于进行快速的业务研发。
+Knife是基于常见设计模式进行模块化设计的Go包组件集，封装了常用的功能，使用简单，致力于进行快速的业务研发。
 
 ### 安装
 
