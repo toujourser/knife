@@ -13,6 +13,7 @@ type stream[T any] struct {
 
 // Of creates a stream stream whose elements are the specified values.
 func Of[T any](elems ...T) stream[T] {
+
 	return FromSlice(elems)
 }
 
