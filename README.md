@@ -31,6 +31,7 @@ $ go get -v -u github.com/toujourser/utils@latest
 * `timeparse` 时间解析
 * `uuid` UUID生成
 * `validation` 数据验证
+* `slice` 切片管理
 
 ### 使用许可
 [GPL](LICENSE) © TOUJOURSER 2022
