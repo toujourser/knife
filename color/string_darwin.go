@@ -36,12 +36,12 @@ func Blue(msg string) string {
 	return fmt.Sprintf("\x1b[34m%s\x1b[0m", msg)
 }
 
-// Green ...
+// Green Color ...
 func Green(msg string) string {
 	return fmt.Sprintf("\x1b[32m%s\x1b[0m", msg)
 }
 
-// Greenf ...
+// Greenf Color ...
 func Greenf(msg string, arg interface{}) string {
 	return fmt.Sprintf("\x1b[32m%s\x1b[0m %+v\n", msg, arg)
 }
