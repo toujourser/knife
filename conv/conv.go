@@ -2,6 +2,7 @@ package conv
 
 import "strconv"
 
+// ParseStringSliceToUint64 将字符串切片转换为 uint64 切片
 func ParseStringSliceToUint64(s []string) []uint64 {
 	iv := make([]uint64, len(s))
 	for i, v := range s {
@@ -10,76 +11,47 @@ func ParseStringSliceToUint64(s []string) []uint64 {
 	return iv
 }
 
-// string转换int
+// StringInt 将字符串转换为整数
 func StringInt(data string) int {
-	var stringInt int
-	if data != "" {
-		stringInt, _ = strconv.Atoi(data)
-	} else {
-		stringInt = 0
-	}
+	stringInt, _ := strconv.Atoi(data)
 	return stringInt
 }
 
-// int转换string
+// IntString 将整数转换为字符串
 func IntString(data int) string {
-	var intString string
-	intString = strconv.Itoa(data)
-	return intString
+	return strconv.Itoa(data)
 }
 
-// int64转换int
+// Int64Int 将 int64 转换为 int
 func Int64Int(data int64) int {
-	var int64Int int
-	int64Int, err := strconv.Atoi(strconv.FormatInt(data, 10))
-	if err != nil {
-		int64Int = 0
-	}
+	int64Int, _ := strconv.Atoi(strconv.FormatInt(data, 10))
 	return int64Int
 }
 
-// int转换int64
+// IntInt64 将 int 转换为 int64
 func IntInt64(data int) int64 {
-	var intInt64 int64
-	intInt64, err := strconv.ParseInt(strconv.Itoa(data), 10, 64)
-	if err != nil {
-		intInt64 = 0
-	}
+	intInt64, _ := strconv.ParseInt(strconv.Itoa(data), 10, 64)
 	return intInt64
 }
 
-// int64转换string
+// Int64String 将 int64 转换为字符串
 func Int64String(data int64) string {
-	var intString string
-	intString = strconv.FormatInt(data, 10)
-	return intString
+	return strconv.FormatInt(data, 10)
 }
 
-// string转换int64
+// StringInt64 将字符串转换为 int64
 func StringInt64(data string) int64 {
-	var stringInt64 int64
-	if data != "" {
-		stringInt64, _ = strconv.ParseInt(data, 10, 64)
-	} else {
-		stringInt64 = 0
-	}
+	stringInt64, _ := strconv.ParseInt(data, 10, 64)
 	return stringInt64
 }
 
-// float64转换string
+// Float64String 将 float64 转换为字符串
 func Float64String(data float64) string {
-	var float64Strig string
-	float64Strig = strconv.FormatFloat(data, 'f', -1, 64)
-	return float64Strig
+	return strconv.FormatFloat(data, 'f', -1, 64)
 }
 
-// string转换float64
+// StringFloat64 将字符串转换为 float64
 func StringFloat64(data string) float64 {
-	var stringFloat64 float64
-	if data != "" {
-		stringFloat64, _ = strconv.ParseFloat(data, 64)
-	} else {
-		stringFloat64 = 0
-	}
+	stringFloat64, _ := strconv.ParseFloat(data, 64)
 	return stringFloat64
 }
