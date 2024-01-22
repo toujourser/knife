@@ -47,3 +47,23 @@ func (v Version) Compare(other Version) int {
 	}
 	return 0
 }
+
+// Compare 比较两个版本号
+//func (v Version) Compare(other Version) int {
+//	switch {
+//	case v.Major < other.Major:
+//		return -1
+//	case v.Major > other.Major:
+//		return 1
+//	case v.Minor < other.Minor:
+//		return -1
+//	case v.Minor > other.Minor:
+//		return 1
+//	case v.Patch < other.Patch:
+//		return -1
+//	case v.Patch > other.Patch:
+//		return 1
+//	default:
+//		return 0
+//	}
+//}
