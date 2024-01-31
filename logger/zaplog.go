@@ -158,3 +158,23 @@ func Panic(args ...interface{}) {
 func Panicf(template string, args ...interface{}) {
 	log.Panicf(template, args...)
 }
+
+func Sugar() {
+	customTimeEncoder := func(t time.Time, enc zapcore.PrimitiveArrayEncoder) {
+		enc.AppendString(t.Format("2006-01-02 15:04:05.000"))
+	}
+	//获取编码器,NewJSONEncoder()输出json格式，NewConsoleEncoder()输出普通文本格式
+	encoderConfig := zap.NewProductionEncoderConfig()
+	encoderConfig.EncodeTime = customTimeEncoder //指定时间格式
+	encoderConfig.EncodeLevel = zapcore.CapitalLevelEncoder
+	encoder := zapcore.NewConsoleEncoder(encoderConfig)
+
+	consoleWriter := zapcore.Lock(os.Stdout)
+	fileWriter, _ := os.OpenFile("/tmp/hardware_info/result_analysis.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+
+	core := zapcore.NewTee(
+		zapcore.NewCore(encoder, zapcore.AddSync(fileWriter), zapcore.DebugLevel),
+		zapcore.NewCore(encoder, zapcore.AddSync(consoleWriter), zapcore.DebugLevel),
+	)
+	_ = zap.New(core).WithOptions(zap.AddCaller()).Sugar()
+}
