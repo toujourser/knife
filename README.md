@@ -33,6 +33,9 @@ $ go get -v -u github.com/toujourser/utils@latest
 * `validation` 数据验证
 * `slice` 切片管理
 
+### 文档
+- 项目总览（中文）：[docs/overview.zh.md](docs/overview.zh.md)
+
 ### 使用许可
 [GPL](LICENSE) © TOUJOURSER 2022
 
